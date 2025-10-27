@@ -68,7 +68,7 @@ qq --version
 ## 📬 Contact
 For questions, feedback, or collaboration inquiries — feel free to reach out:
 
-📧 Email: [imtable99@gmail.com](mailto:imtable99@gmail.com)
-📲 Telegram: [t.me/imtable](https://t.me/imtable) 
-💼 LinkedIn: [linkedin.com/in/imtable](https://linkedin.com/in/imtable)
-🌐 GitHub: [github.com/imtable](https://github.com/imtable)
+- 📧 Email: [imtable99@gmail.com](mailto:imtable99@gmail.com)
+- 📲 Telegram: [t.me/imtable](https://t.me/imtable) 
+- 💼 LinkedIn: [linkedin.com/in/imtable](https://linkedin.com/in/imtable)
+- 🌐 GitHub: [github.com/imtable](https://github.com/imtable)
