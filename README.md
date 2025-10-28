@@ -1,4 +1,4 @@
-![Preview](https://github.com/user-attachments/assets/32087086-c96b-4dab-ad0a-432ddf3f981f)
+<img src="https://github.com/user-attachments/assets/32087086-c96b-4dab-ad0a-432ddf3f981f" alt="Preview" width="300"/>
 
 # qolorun.sh — Smart CLI Runner with Colorized Output
 
