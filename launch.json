@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run current Java file with qolorun",
+      "type": "pwa-node",
+      "request": "launch",
+      "program": "qolorun",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "runtimeExecutable": "qolorun",
+      "args": ["java", "${file}"],
+      "internalConsoleOptions": "neverOpen"
+    }
+  ]
+}

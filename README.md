@@ -1,9 +1,8 @@
-# qq.sh — Smart CLI Runner with Colorized Output
+# qolorun.sh — Smart CLI Runner with Colorized Output
 
-`qq` is a smart Bash script that runs your commands with optional colorized output. It automatically detects whether the program expects user input and adjusts behavior accordingly — so interactive programs like Java `Scanner`, Python `input()`, or Bash `read` work without breaking.
+`qolorun` is a smart Bash script that runs your commands with optional colorized output. It automatically detects whether the program expects user input and adjusts behavior accordingly — so interactive programs like Java `Scanner`, Python `input()`, or Bash `read` work without breaking.
 
-Current version: **0.1**  
-Released: October 2025
+Although `qolorun` is universal and works with any run commands, it has been thoroughly tested with **Java** and **Node.js** projects.
 
 ---
 
@@ -15,45 +14,55 @@ Released: October 2025
 - ✅ Works on Linux and macOS
 - ✅ Handles Ctrl+C gracefully
 - ✅ Includes `--help`, `--version`, and `--install`
+- ✅ Can be integrated with VS Code `launch.json` for direct execution Java
 
 ---
 
 ## 📦 Installation
 
 ```bash
-bash qq.sh --install
+bash qolorun.sh --install
 ```
-Reopen your terminal or run one of the following:
+Reopen your terminal
+
+🗑️ 📦 Uninstallation
+
 ```bash
-source ~/.bashrc   # if you're using Bash
-source ~/.zshrc    # if you're using Zsh
+bash qolorun.sh --uninstall
 ```
 
 ## 🧪 Usage
+you can run the script using either:
+```bash
+qolorun <command> [args...]
+qr <command> [args...]
+```
 
 Run commands with automatic detection:
 ```bash
-qq ./gradlew build
-qq java NestedMenu nestedMenu.java
-qq python3 script.py
+qr node app.js
+qr npm run start
+qr java NestedMenu.java
+qr ./gradlew build
+qr python3 app.py
 ```
 
 Force interactive mode (no colorization, preserves stdin):
 ```bash
-qq --interactive java NestedMenu
-qq -i python3 script.py
+qr --interactive java NestedMenu
+qr -i python3 script.py
 ```
 
 Force plain mode (colorize even if input is expected):
 ```bash
-qq --plain ./script.sh
-qq -p node app.js
+qr --plain ./script.sh
+qr -p node app.js
 ```
 
 Show help or version info:
 ```bash
-qq --help
-qq --version
+qr --help
+qr --version
 ```
 
 ## 🎨 Color Rules
