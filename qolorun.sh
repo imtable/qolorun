@@ -3,14 +3,14 @@
 # =============================================================================
 # qolorun.sh — Smart CLI Runner with Colorized Output
 # Author: imtable
-# Version: 0.2
+# Version: 0.2.1
 # Created: October 2025
 # Location: Dublin / Kyiv
 # License: MIT
 # =============================================================================
 
 # 🏷️ Constants
-VERSION="0.2"
+VERSION="0.2.1"
 AUTHOR_INFO="Created by imtable — Dublin/Kyiv, 2025"
 INSTALL_DIR="$HOME/bin"
 CACHE_DIR="$HOME/.qr-cache"
