@@ -75,15 +75,27 @@ fi
 if [[ "$1" == "--update" ]]; then
     mkdir -p "$INSTALL_DIR"
     repo_url="https://github.com/imtable/qolorun.git"
+
     cecho $BROWN "Checking for updates..."
+
     local_version=$([[ -f "$INSTALL_DIR/qolorun" ]] && "$INSTALL_DIR/qolorun" --version | grep -oE '[0-9]+\.[0-9]+' || echo "0.0")
     cecho $BROWN "Local version: $local_version"
+
     remote_version=$(git ls-remote --tags "$repo_url" 2>/dev/null | awk -F'/' '{print $3}' | sort -V | tail -n1)
     remote_version=${remote_version#v}
     cecho $BROWN "Remote version: $remote_version"
 
-    if [[ "$remote_version" == "" ]]; then cecho $RED "Unable to fetch remote version. Update aborted."; exit 1; fi
-    if [[ "$(printf '%s\n' "$remote_version" "$local_version" | sort -V | head -n1)" == "$local_version" && "$local_version" != "0.0" ]]; then
+    if [[ -z "$remote_version" ]]; then
+        cecho $RED "Unable to fetch remote version. Update aborted."
+        exit 1
+    fi
+
+    if [[ "$local_version" == "$remote_version" ]]; then
+        cecho $GREEN "Already up-to-date (version $local_version)."
+        exit 0
+    fi
+
+    if [[ "$(printf '%s\n' "$local_version" "$remote_version" | sort -V | head -n1)" != "$local_version" ]]; then
         cecho $GREEN "Already up-to-date (version $local_version)."
         exit 0
     fi
@@ -91,15 +103,24 @@ if [[ "$1" == "--update" ]]; then
     tmp_dir=$(mktemp -d)
     cecho $BROWN "Downloading latest version..."
     git clone --depth 1 "$repo_url" "$tmp_dir" >/dev/null 2>&1
-    [[ ! -f "$tmp_dir/qolorun.sh" ]] && cecho $RED "Update failed: qolorun.sh not found" && rm -rf "$tmp_dir" && exit 1
+
+    if [[ ! -f "$tmp_dir/qolorun.sh" ]]; then
+        cecho $RED "Update failed: qolorun.sh not found"
+        rm -rf "$tmp_dir"
+        exit 1
+    fi
+
     mv "$tmp_dir/qolorun.sh" "$INSTALL_DIR/qolorun"
     chmod +x "$INSTALL_DIR/qolorun"
     ln -sf "$INSTALL_DIR/qolorun" "$INSTALL_DIR/qr"
+
     rm -rf "$tmp_dir"
+
     cecho $GREEN "qolorun updated successfully to version $remote_version!"
     cecho $GRAY "$AUTHOR_INFO"
     exit 0
 fi
+
 
 # 🛠 Install
 if [[ "$1" == "--install" ]]; then
