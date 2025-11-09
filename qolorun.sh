@@ -38,6 +38,9 @@ color_line() {
 # 📌 Header
 cecho $MAGENTA "\n========== Running: $* =========="
 
+# Start timer
+START_TIME=$(date +%s.%N)
+
 # 🛑 Help
 if [[ "$1" == "--help" || "$1" == "-h" ]]; then
     echo -e "\n\033[1;36mqolorun — smart command runner with optional colorized output\033[0m"
@@ -180,6 +183,13 @@ else "$@" > >(while IFS= read -r line; do color_line "$line"; done) \
 fi
 
 status=$?
-if [ $status -eq 0 ]; then cecho $MAGENTA "========== Done: Success =========="
-else cecho $MAGENTA "========== Done: Failed (Exit $status) =========="; fi
+end_time=$(date +%s.%N)
+elapsed=$(printf "%.2f" "$(echo "$end_time - $START_TIME" | bc)")
+
+if [ $status -eq 0 ]; then
+    cecho $MAGENTA "========== Done: Success (${elapsed}s) =========="
+else
+    cecho $MAGENTA "========== Done: Failed (Exit $status, ${elapsed}s) =========="
+fi
+
 exit $status

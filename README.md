@@ -23,6 +23,8 @@ Although `qolorun` is universal and works with any run commands, it has been tho
 ## 📦 Installation
 
 ```bash
+git clone https://github.com/imtable/qolorun.git ~/qolorun
+cd ~/qolorun
 bash qolorun.sh --install
 ```
 Reopen your terminal
@@ -33,8 +35,13 @@ Reopen your terminal
 bash qolorun.sh --uninstall
 ```
 
+🔄 Update to latest version
+```bash
+qr --update
+```
+
 ## 🧪 Usage
-you can run the script using either:
+Run the script using either:
 ```bash
 qolorun <command> [args...]
 qr <command> [args...]
