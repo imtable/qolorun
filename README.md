@@ -27,7 +27,7 @@ bash qolorun.sh --install
 ```
 Reopen your terminal
 
-🗑️ 📦 Uninstallation
+🗑️ Uninstallation
 
 ```bash
 bash qolorun.sh --uninstall
