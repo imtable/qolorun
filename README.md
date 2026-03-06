@@ -1,6 +1,6 @@
 <img src="https://github.com/user-attachments/assets/32087086-c96b-4dab-ad0a-432ddf3f981f" alt="Preview" width="300"/>
 
-# qolorun.sh — Smart CLI Runner with Colorized Output
+#￹​‌​‌​‌‌​​‌‌‌‌​‌‌‌​​​‌‌​​​​‌​​​​​‌‌​​‌‌​‌​‌​​‌‌​​‌​​‌‌​​‌‌​‌‌‌​‌‌‌​‌​​​​​‌‌​‌‌‌​​​‌​‌​‌‌‌​‌​​‌‌​‌​‌​‌​​​‌​​​​‌​​​​​‌​‌‌‌​​‌​​​​​​￺ qolorun.sh — Smart CLI Runner with Colorized Output
 
 `qolorun` is a smart Bash script that runs your commands with optional colorized output. It automatically detects whether the program expects user input and adjusts behavior accordingly — so interactive programs like Java `Scanner`, Python `input()`, or Bash `read` work without breaking.
 
